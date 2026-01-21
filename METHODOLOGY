@@ -1,0 +1,94 @@
+# Methodology Report: Development of an Excel Dashboard for ABC Company Sales Analysis
+
+## 1. Introduction
+This methodology report outlines the systematic approach employed to develop an interactive Excel dashboard for analyzing sales data from ABC COMPANY, an online gifting company. The project aimed to extract insights from provided datasets to address specific analytical questions, such as total revenue, monthly sales trends, and occasion-based performance. The methodology follows a structured data analytics pipeline: data extraction, cleaning and transformation, modeling, analysis, visualization, and reporting.
+
+The process adheres to ETL (Extract, Transform, Load) principles, leveraging Excel's built-in tools like Power Query Editor and Power Pivot. This ensures reproducibility, scalability, and efficiency. The datasets included three CSV files: customers.csv (customer details), orders.csv (order information), and products.csv (product attributes). All steps were performed using Microsoft Excel (version 2019 or higher) to simulate a real-world data analyst workflow.
+
+## 2. Data Collection and Extraction
+### 2.1 Source Identification
+Data was sourced from a GitHub repository containing the ABC Company sales analysis problem statement (PDF) and raw CSV files. The datasets covered:
+- Customers: 100 records with fields like Customer ID, Name, City, Contact, Email, Gender, and Address.
+- Orders: 1,000 records with fields like Order ID, Customer ID, Product ID, Quantity, Order Date/Time, Delivery Date/Time, Location, and Occasion.
+- Products: Product details including Product ID, Name, Category, Price (INR), Occasion, and Description.
+
+### 2.2 Extraction Method
+- A blank Excel workbook was initiated.
+- Data was extracted using Power Query Editor via **Data > Get Data > From File > From Folder**, selecting the folder containing the CSVs. This method allows for dynamic updates if new files are added.
+- Files were loaded as individual queries without immediate combination, enabling isolated inspection.
+- Column profiling was enabled on the entire dataset to assess data quality (e.g., distinct vs. unique values, error checks, and basic statistics like most frequent Product ID).
+
+No external APIs or web scraping were required, as data was pre-provided.
+
+## 3. Data Cleaning and Transformation
+Cleaning and transformation were conducted within Power Query Editor, an ETL tool integrated into Excel, to prepare data for analysis.
+
+### 3.1 Cleaning Procedures
+- Inspected for inconsistencies: No null values, whitespaces, or duplicates were found (verified via column distribution: e.g., 1,000 distinct Order IDs in orders.csv).
+- Removed irrelevant columns: Description from products.csv (contained non-essential French text).
+- Data type adjustments: Converted Contact in customers.csv to text; Price in merged orders to currency.
+
+### 3.2 Transformation Procedures
+- **Feature Engineering**:
+  - In orders.csv: Extracted Month Name from Order Date (**Add Column > Date > Month > Name of Month**).
+  - Extracted Order Hour from Order Time and Delivery Hour from Delivery Time (**Add Column > Time > Hour**).
+  - Calculated Delivery Difference (days) via custom column: [Delivery Date] - [Order Date], then transformed to days-only format.
+- **Merging Tables**: Used **Merge Queries** (left outer join) on Product ID to append Price from products.csv to orders.csv.
+- No splitting or advanced regex was needed due to clean data structure.
+
+Transformed data was loaded back to Excel as tables and added to the Data Model for relational querying.
+
+## 4. Data Modeling
+Data modeling established relationships between tables to enable multi-table analysis.
+
+- Enabled Power Pivot add-in (**File > Options > Customize Ribbon > Developer Tab > COM Add-ins**).
+- In Power Pivot (**Manage**), switched to Diagram View to visualize tables.
+- Adopted a Star Schema:
+  - Fact Table: Orders (aggregatable fields like Quantity, Revenue).
+  - Dimension Tables: Customers (joined on Customer ID, 1:many relationship) and Products (joined on Product ID, 1:many).
+- Added calculated columns using DAX (Data Analysis Expressions):
+  - Revenue: = [Price] * [Quantity].
+  - Order Day Name: = FORMAT([Order Date], "DDDD").
+- Verified model integrity by testing cross-table queries in PivotTables.
+
+This setup resolved issues like uniform values across unrelated fields, ensuring accurate aggregation.
+
+## 5. Data Analysis Methods
+Analysis focused on deriving insights through aggregation and statistical measures using PivotTables and Excel functions.
+
+### 5.1 PivotTable-Based Analysis
+- Created PivotTables from the Data Model (**Insert > PivotTable > From Data Model**).
+- Aggregations:
+  - SUM for Revenue (e.g., total revenue).
+  - AVERAGE for Delivery Difference and Revenue (e.g., average delivery time, customer spending).
+  - COUNT for Order ID (e.g., total orders, top cities).
+- Filtering and Sorting: Applied Value Filters (e.g., Top 5/10) for products/cities; chronological sorting for months.
+- Slicers: Inserted for Occasion (**Insert > Slicer**) to dynamically filter product popularity.
+
+### 5.2 Statistical Analysis
+- Correlation: Used Excel's CORREL function (=CORREL(Quantity array, Delivery Difference array)) to assess order quantity vs. delivery time impact (result: weak positive correlation ≈ 0.03478).
+- Custom Measures in Power Pivot: e.g., Total Revenue = SUM(Orders[Revenue]).
+
+Analysis addressed all problem statement questions, with outputs validated for accuracy (e.g., peak sales in November due to occasions).
+
+## 6. Visualization and Dashboard Development
+### 6.1 Chart Selection
+- Inserted charts from PivotTables (**Insert > Charts**):
+  - Bar Charts: For categorical comparisons (e.g., Revenue by Occasions, Categories, Top Products/Cities).
+  - Line Charts: For trends (e.g., Monthly Revenue, Revenue by Order Hour).
+- Criteria: Charts chosen based on data type (e.g., lines for time-series, bars for rankings).
+
+### 6.2 Dashboard Assembly
+- Created a dedicated sheet.
+- Added interactivity: Slicers (connected via Report Connections) and Timelines (**Insert > Timeline**) for Occasion and Dates.
+- KPI Display: Used shapes (**Insert > Shapes**) linked to PivotTable cells for measures (e.g., Total Revenue).
+- Formatting: Hid field buttons/legends; added titles/axis labels; applied themes (**Page Layout > Themes**); inserted ABC Company logo (**Insert > Pictures**).
+- Ensured responsiveness: Filters update all elements dynamically.
+
+## 7. Reporting and Validation
+- Generated executive summary using AI (ChatGPT): Pasted dashboard screenshot and prompted for insights/recommendations.
+- Validation: Cross-checked outputs (e.g., total revenue ₹3,502,984) against raw data; tested filters for consistency.
+- Sharing: Uploaded to GitHub (datasets, PDF questions, screenshot, summary); created LinkedIn post draft via AI.
+- Limitations: Assumed clean data; no advanced ML; focused on 2023 data.
+
+This methodology ensures a robust, insightful dashboard, demonstrating proficiency in Excel-based analytics. Future extensions could integrate Power BI for enhanced visuals.
