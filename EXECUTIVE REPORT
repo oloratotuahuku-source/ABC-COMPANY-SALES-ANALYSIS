@@ -1,0 +1,53 @@
+Summarized Executive Report: ABC Company Sales Dashboard (2022)
+
+Overview
+This interactive Excel dashboard analyzes 1,000 orders placed with ABC Company in 2022, generating a total revenue of $3,520,984. The analysis covers revenue distribution by occasion, month, hour, product category, top products, top cities, and day-of-week patterns, with key performance indicators (KPIs) displayed prominently.
+
+ Key Performance Indicators (KPIs)
+- Total Orders — 1,000  
+- Total Revenue — $3,520,984  
+- Average Order Value (AOV) — $3,520.98  
+- Average Delivery Time — 5.53 days
+
+Major Findings
+
+1. Revenue by Occasion  
+   - Highest revenue came from Anniversary and Raksha Bandhan occasions.  
+   - Strong festive/relationship-driven demand is evident (Anniversary, Raksha Bandhan, Diwali, Valentine's Day all rank high).  
+   - "All Occasions" and "Birthday" also contribute meaningfully.
+
+2. Monthly Revenue Trend  
+   - Clear seasonal peaks in November (likely Diwali + Raksha Bandhan overlap) and February (Valentine’s Day).  
+   - March (Holi) shows another noticeable spike.  
+   - Lower and relatively stable revenue in non-festive months (April–October).
+
+3. Revenue by Hour of Order  
+   - Strong evening peak around 7–8 PM and a secondary peak in the late afternoon/early evening.  
+   - Indicates customers primarily place gifting orders after work hours or during leisure time.
+
+4. Revenue by Product Category  
+   - Soft Toys generated the highest revenue by a significant margin.  
+   - Sweets, Colours (likely Holi-related), and Mugs follow as important categories.  
+   - Rakhi Bandhan-specific items also contribute notably.
+
+5. Top 5 Products by Revenue  
+   - Dominated by gift sets and packs (e.g., "Geranium Set Pack", "Export Gift Set", "Mug Set", "Rakhi Bandhan Pack", "Nili Rose").  
+   - Suggests customers prefer curated/complete gifting solutions over individual items.
+
+6. Top 10 Cities by Order Volume  
+   - Leading cities: Ahmedabad, Bhavnagar, Bhilwara, Chhatarpur, Kota, Nagpur, Neemuch, Surat, Udaipur, Vadodara.  
+   - Strong presence in Gujarat and Rajasthan, with scattered demand in other regions.
+
+7. Orders by Day of the Week  
+   - Highest order volume on Tuesday and Sunday.  
+   - Slightly lower but still strong on Monday, Wednesday, and Thursday.  
+   - Indicates planning/gifting behavior peaks early in the week and on weekends.
+
+ Strategic Insights & Recommendations
+- Festive calendar drives revenue: November (Diwali/Raksha Bandhan), February (Valentine’s), and March (Holi) are critical months — prioritize inventory, marketing, and promotions during these periods.
+- Evening ordering behavior: Run targeted ads, flash sales, and push notifications between 6–9 PM for maximum impact.
+- Soft toys & gift sets dominate: Increase focus on bundled/complete gift offerings; consider creating more occasion-specific combos.
+- Geographic concentration: Strengthen logistics and marketing in Gujarat and Rajasthan — these regions show the highest order density.
+- Average delivery ~5.5 days: Aim to reduce to 3–4 days during peak festive seasons to improve customer satisfaction.
+
+This dashboard clearly demonstrates that occasion-based gifting, evening purchase behavior, and festive seasonality are the primary drivers of ABC Company’s 2022 performance.
